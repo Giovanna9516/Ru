@@ -24,24 +24,25 @@
 
 ## 1. Sobre o Projeto
 
-O **Sistema de Gestão de Eventos** é uma API desenvolvida utilizando **Django REST Framework** para centralizar o gerenciamento de eventos acadêmicos e corporativos.
+O **Sistema de Gestão de Eventos** é uma API desenvolvida em Django REST Framework para gerenciamento de eventos acadêmicos e corporativos. A solução permite o cadastro de eventos, participantes e atividades, com relacionamentos bem definidos entre as entidades.
 
-* **Contexto:** O projeto visa substituir métodos descentralizados (planilhas, formulários desconexos) por uma solução robusta e escalável, minimizando falhas e simplificando a gestão de eventos, participantes e atividades.
-* **Solução:** Uma API RESTful que permite o CRUD completo e gerencia relacionamentos complexos entre as entidades.
+**Contexto:** Muitos organizadores de eventos ainda utilizam planilhas e formulários desconexos, o que gera falhas e dificuldade de gestão.
+
+**Solução:** Centralizar todas as operações em uma API robusta e escalável.
 
 
 ## 2. Objetivos
 
 ### Objetivo Geral
-Desenvolver uma API Backend com autenticação segura para gerenciar eventos, participantes, atividades e seus relacionamentos de forma integrada.
+Desenvolver uma API Backend com autenticação segura para gerenciar eventos, participantes, atividades e seus relacionamentos. 
 
 ### Objetivos Específicos
 * Modelagem de Entidades: **Evento**, **Participante** e **Atividade**.
 * Implementação de Relacionamentos: 1:N, N:N e 1:1.
 * Criação de CRUD (Create, Read, Update, Delete) completo para todas as entidades.
-* Implementação de sistema de **autenticação JWT** (JSON Web Token).
-* Desenvolvimento de **rotas de relacionamento** (mínimo 3).
-* Criação de **rota composta A-B-C** (Dashboard/Visão Gerencial).
+* Implementação de sistema de **autenticação JWT**
+* Desenvolvimento de **rotas de relacionamento** 
+* Criação de **rota composta A-B-C**
 
 
 ## 3. Tecnologias & Arquitetura
@@ -56,13 +57,12 @@ Desenvolver uma API Backend com autenticação segura para gerenciar eventos, pa
 | **Ferramentas** | Git, VS Code | - | Controle de versão e Ambiente de Desenvolvimento |
 
 ### 🏛️ Arquitetura
-A arquitetura é organizada em camadas (*Layered Architecture*):
+A arquitetura é organizada em camadas :
 
-* **API Layer:** Responsável pelos Endpoints REST e Rotas.
-* **Business Layer:** Views e Serializers (lógica de negócios e validação de dados).
-* **Data Layer:** Models Django (persistência de dados).
-* **Auth Layer:** JWT Authentication (segurança e autorização).
-
+* Camada de API: Endpoints REST 
+* Camada de negócios: Visualizações e serializadores
+* Camada de Dados: Modelos Django 
+* Camada de autenticação: Autenticação JWT).
 
 ## 4. Funcionalidades Detalhadas
 
@@ -70,7 +70,7 @@ A arquitetura é organizada em camadas (*Layered Architecture*):
 | :--- | :--- | :--- |
 | **Eventos** | CRUD completo; Campos: `nome`, `descrição`, `data_início`, `data_fim`, `local`. | **1:N** com Atividade |
 | **Participantes** | CRUD; Tipos: `estudante`, `palestrante`, `convidado`. | **N:N** com Evento |
-| **Atividades** | Gerenciamento de atividades por evento; Tipos: `workshop`, `palestra`, `oficina`. | **1:1** com Participante (Responsável) |
+| **Atividades** | Gerenciamento de atividades por evento; Tipos: `workshop`, `palestra`, `oficina`. | **1:N** com Participante (Responsável) |
 
 
 ## 5. Configuração do Ambiente
@@ -103,25 +103,39 @@ pip install -r requirements.txt
 
 4. Configure as Variáveis de Ambiente:
 cp .env.example .env
-# Edite o arquivo .env com suas credenciais de banco de dados e chaves secretas.
 
 5. Aplique as Migrações e Inicie o Servidor:
 python manage.py migrate
 python manage.py runserver
 
 O servidor estará acessível em http://127.0.0.1:8000/.
+
 6. Rotas Principais da API
-A documentação interativa estará disponível em /api/docs/ (Swagger UI ou Redoc) após a execução do servidor local.
+
 | Método | Endpoint (Exemplo) | Descrição | Autenticação |
 |---|---|---|---|
-| GET | /api/eventos/ | Lista todos os eventos | Opcional/Requerida (depende da view) |
+| GET | /api/eventos/ | Lista todos os eventos | Opcional/Requerida  |
 | POST | /api/participantes/ | Cria um novo participante | Requerida |
 | GET | /api/eventos/{id}/ | Recupera um evento específico | Opcional |
 | POST | /api/auth/token/ | Obter Token JWT | Não Aplicável |
 | GET | /api/dashboard/ | Rota Composta A-B-C (Visão Gerencial) | Requerida |
+
 7. Estrutura e Modelos
 📂 Estrutura do Projeto
-(Recomendação: Adicione a árvore de diretórios do projeto aqui, como no modelo de referência.)
+eventos/
+├── __init__.py
+├── admin.py
+├── apps.py
+├── models.py
+├── serializers.py 
+├── tests.py
+├── views.py
+├── gestor_eventos/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+
 💾 Modelo de Dados (Diagramas)
 (Recomendação: Substitua a seção "Diagrama de Banco de Dados" por um link ou imagem do seu Diagrama Entidade-Relacionamento.)
 Link para o Diagrama Entidade-Relacionamento (ER)
