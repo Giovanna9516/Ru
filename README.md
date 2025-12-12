@@ -137,7 +137,9 @@ eventos/
 │   └── wsgi.py
 
 💾 Modelo de Dados (Diagramas)
-(Recomendação: Substitua a seção "Diagrama de Banco de Dados" por um link ou imagem do seu Diagrama Entidade-Relacionamento.)
+
+https://github.com/Giovanna9516/Ru/issues/1#issue-3723489910
+
 Link para o Diagrama Entidade-Relacionamento (ER)
 8. Implementação (Deploy)
 ☁️ Plataforma Recomendada: [Render / Railway / AWS / Sua Escolha]
