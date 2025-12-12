@@ -138,20 +138,14 @@ eventos/
 
 💾 Modelo de Dados (Diagramas)
 
-https://github.com/Giovanna9516/Ru/issues/1#issue-3723489910
+![Image](https://github.com/user-attachments/assets/2f356d2b-3692-4abe-a847-4e7ec61b764a)
 
 Link para o Diagrama Entidade-Relacionamento (ER)
-8. Implementação (Deploy)
-☁️ Plataforma Recomendada: [Render / Railway / AWS / Sua Escolha]
-1. Prepare o Procfile:
-web: gunicorn projeto.wsgi:application --log-file -
 
-2. Processo de Deploy:
- * Configure variáveis de ambiente na plataforma de deploy.
- * Execute migrações em produção: python manage.py migrate
- * Colete arquivos estáticos (se aplicável): python manage.py collectstatic
-> CI/CD: Integração com GitHub Actions disponível em .github/workflows/deploy.yml.
-> 
+8. Implementação (Deploy)
+
+FALTA 🛑
+
 9. Contribuição & Licença
 🤝 Contribuição
  * Faça um fork do projeto.
